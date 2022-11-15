@@ -62,11 +62,7 @@
                 "family": "Y",
                 "capacity": 0
             },
-            "kind": "functionapp",
-            "properties": {
-                "computeMode": "Dynamic",
-                "reserved": true
-            }
+            "kind": "functionapp"
         },
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices",
@@ -114,23 +110,24 @@
                 "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]",
                 "[resourceId('Microsoft.Web/serverfarms', variables('aspName'))]"
             ],
-            "kind": "functionapp,linux",
+            "kind": "functionapp",
             "identity": {
                 "type": "SystemAssigned"
             },
             "properties": {
-                "reserved": true,
+                "reserved": false,
                 "name": "[variables('functionName')]",
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('aspName'))]",
                 "httpsOnly": true,
                 "siteConfig": {
                     "numberOfWorkers": 1,
-                    "linuxFxVersion": "Python|3.9",
                     "acrUseManagedIdentityCreds": false,
                     "alwaysOn": false,
                     "http20Enabled": false,
                     "functionAppScaleLimit": 200,
                     "minimumElasticInstanceCount": 0,
+                    "netFrameworkVersion": "v6.0",
+                    "powerShellVersion": "7.2",
                     "ipSecurityRestrictions": [
                     {
                         "ipAddress": "LogicApps",
@@ -178,7 +175,7 @@
                     ],
                     "properties": {
                         "FUNCTIONS_EXTENSION_VERSION": "~4",
-                        "FUNCTIONS_WORKER_RUNTIME": "python",
+                        "FUNCTIONS_WORKER_RUNTIME": "powershell",
                         "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageName')), '2019-06-01').keys[0].value, ';EndpointSuffix=core.windows.net')]",
                         "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageName'),';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageName')), '2019-06-01').keys[0].value, ';EndpointSuffix=core.windows.net')]",
                         "WEBSITE_CONTENTSHARE": "[variables('storageName')]",
