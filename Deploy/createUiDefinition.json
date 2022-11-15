@@ -471,7 +471,7 @@
             "WorkbookName": "[coalesce(steps('automationModules').advancedSetup.WorkbookDisplayName,'Sentinel Triage AssistanT - Status')]",
             "DeployWorkbook": "[coalesce(steps('automationModules').advancedSetup.DeployWorkbook, true)]",
             "STATFunctionName": "[coalesce(steps('automationModules').advancedSetup.STATFunctionName,'statapi')]",
-            "DeploymentBranch": "[coalesce(steps('automationModules').advancedSetup.DeploymentBranch,'function_dev')]",
+            "DeploymentBranch": "[coalesce(steps('automationModules').advancedSetup.DeploymentBranch,'function_dev_ps')]",
             "location": "[location()]"
         }
     }

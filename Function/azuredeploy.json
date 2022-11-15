@@ -62,6 +62,7 @@
                 "family": "Y",
                 "capacity": 0
             },
+            "properties": {},
             "kind": "functionapp"
         },
         {
