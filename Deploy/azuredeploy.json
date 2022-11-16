@@ -121,8 +121,7 @@
             "name": "BaseTemplate",
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
-                "[resourceId('Microsoft.Resources/deployments', 'FunctionTemplate')]",
-                "[resourceId('Microsoft.Resources/deployments', 'OOFTemplate')]"
+                "[resourceId('Microsoft.Resources/deployments', 'FunctionTemplate')]"
             ],
             "properties": {
                 "mode": "incremental",
@@ -146,7 +145,7 @@
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
                 "[resourceId('Microsoft.Resources/deployments', 'FunctionTemplate')]",
-                "[resourceId('Microsoft.Resources/deployments', 'OOFTemplate')]"
+                "[resourceId('Microsoft.Resources/deployments', 'BaseTemplate')]"
             ],
             "properties": {
                 "mode": "incremental",
@@ -170,7 +169,7 @@
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
                 "[resourceId('Microsoft.Resources/deployments', 'FunctionTemplate')]",
-                "[resourceId('Microsoft.Resources/deployments', 'OOFTemplate')]"
+                "[resourceId('Microsoft.Resources/deployments', 'KQLTemplate')]"
             ],
             "properties": {
                 "mode": "incremental",
