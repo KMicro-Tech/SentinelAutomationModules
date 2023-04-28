@@ -1,4 +1,4 @@
-# Sentinel Triage AssistanT (STAT) :hospital: - Deployment
+# Sentinel Triage AssistanT (STAT) :hospital: - Deployments
 
 The deployment of the STAT solution is broken down into 2 steps:
 
